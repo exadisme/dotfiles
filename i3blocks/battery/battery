@@ -1,0 +1,27 @@
+#!/bin/bash
+# Depends:
+# CPU frequency depends on cpupower
+# CPU temperature depends on sensors
+# Music player depends on cmus.
+
+BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+BATTERYSTAT=$(cat /sys/class/power_supply/BAT0/status)
+
+# Battery status icon
+if [ $BATTERYSTAT = Charging ];
+then
+	BATTERYSTATICON="▲"
+   echo " $BATTERY% $BATTERYSTATICON "
+
+elif [ $BATTERYSTAT = Discharging ];
+then
+	BATTERYSTATICON="▼"     
+   BATTERYTIME=$(acpi | awk '{ print $5 }')
+   echo " $BATTERY% $BATTERYSTATICON $BATTERYTIME "
+
+elif [ $BATTERYSTAT = Full ];
+then
+   BATTERYSTATICON="▇"
+   echo " $BATTERY% $BATTERYSTATICON "
+fi
+

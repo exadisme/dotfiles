@@ -1,0 +1,9 @@
+q
+clear
+del
+add ~/Music/
+del all
+rem all
+rem
+delall
+colorscheme dracula
