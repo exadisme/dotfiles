@@ -84,7 +84,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *rofiswitchcmd[] = { "rofi", "-show", "window", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *printcmd[]  = { "flameshot", "gui", NULL };
@@ -93,10 +93,13 @@ static const char *lockcmd[]  = { "slock", NULL };
 static const char *quitcmd[]  = { "pkill", "dwm", NULL }; 
 static const char *browsecmd[]  = { "firefox", NULL }; 
 static const char *codecmd[]  = { "code", NULL }; 
-static const char *filecmd[]  = { "thunar", NULL }; 
+static const char *filecmd[]  = { "pcmanfm", NULL }; 
 static const char *volucmd[]  = { "volume.sh", "up", NULL }; 
 static const char *voldcmd[]  = { "volume.sh", "down", NULL }; 
 static const char *volmcmd[]  = { "volume.sh", "mute", NULL }; 
+static const char *brightucmd[]  = { "brightnessctl", "s", "10%+", NULL }; 
+static const char *brightdcmd[]  = { "brightnessctl", "s", "10%-", NULL }; 
+
 
 
 
@@ -170,6 +173,8 @@ static Key keys[] = {
 	{ NULL,                         XF86XK_AudioRaiseVolume,  spawn,          {.v = volucmd } },
 	{ NULL,                         XF86XK_AudioLowerVolume,  spawn,          {.v = voldcmd } },
 	{ NULL,                         XF86XK_AudioMute,         spawn,          {.v = volmcmd } },
+	{ NULL,                         XF86XK_MonBrightnessUp,   spawn,          {.v = brightucmd } },
+	{ NULL,                         XF86XK_MonBrightnessDown, spawn,          {.v = brightdcmd } },
 };
 
 
